@@ -1,5 +1,4 @@
 const App = () => {
-  const course = "Half Stack application development";
   const course = {
     name: 'Half Stack application development',
     parts: [
@@ -18,18 +17,18 @@ const App = () => {
     ]
   }
 
-  const Header = ({ course }) => <h1>{course}</h1>
+  const Header = ({ props }) => <h1>{props.name}</h1>
   const Part = ({props}) => <p>{props.name} {props.exercises}</p> 
-  const Total = () => <p>Number of exercises: {parts[0].exercises + parts[1].exercises + parts[2].exercises}</p>
+  const Total = () => <p>Number of exercises: {course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises}</p>
 
 
   return (
     
     <>
-      <Header course={course} />
-      <Part props={parts[0]} />
-      <Part props={parts[1]} />
-      <Part props={parts[2]} />
+      <Header props={course} />
+      <Part props={course.parts[0]} />
+      <Part props={course.parts[1]} />
+      <Part props={course.parts[2]} />
     <Total />
     </>
   );
