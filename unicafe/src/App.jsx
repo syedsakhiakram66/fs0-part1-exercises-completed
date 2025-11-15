@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import Statistics from './components/Statistics'
-
+import Button from './components/Button'
 
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
-  const increment = (type) => {
+     const increment = (type) => {
     if (type === 'good') {
       setGood(good + 1)
       setBad(bad + 0)
@@ -24,9 +24,9 @@ const App = () => {
   return (
     <>
     <h1>give feedback</h1>
-  <button onClick={() => increment('good')}>good</button>
-  <button onClick={() => increment('neutral')}>neutral</button>
-  <button onClick={() => increment('bad')}>bad</button>
+    <Button type='good' onClick={() => increment('good')}/>
+    <Button type='neutral'onClick={() => increment('neutral')} />
+    <Button type='bad' onClick={() => increment('bad')} />
 
     <Statistics good={good} neutral={neutral} bad={bad}/>
 
