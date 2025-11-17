@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const App = () => {
   const anecdotes = [
@@ -14,9 +14,15 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
 
+ function next() {
+    setSelected(Math.floor(Math.random() * anecdotes.length))
+ }
+
   return (
     <div>
       {anecdotes[selected]}
+      <br />
+      <button onClick={() => next()}>next anecdote</button>
     </div>
   )
 }
